@@ -27,14 +27,11 @@ class Drop {
     }
 }
 
-
 function preload() {
     rainSound = loadSound('assets/rain-2.mp3');
 }
 
 function setup() {
-    imageMode(CENTER)
-    angleMode(DEGREES)
     w = windowWidth * 0.99
     h = windowHeight * 0.965
     createCanvas(w, h)
@@ -76,7 +73,7 @@ function keyPressed() {
             volume *= 0.9
         }
         rainSound.setVolume(volume)
-        if (volume < 0.1) {
+        if (volume < 0.2) {
             rainSound.setVolume(0)
         }
     }
