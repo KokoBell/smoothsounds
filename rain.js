@@ -1,9 +1,8 @@
-let atom
 let w, h
 let rain = []
 let rainSound
 let volume = 1
-let colors = ['blue', 'green', 'white']
+let colors = ['lightBlue', 'lime', 'white','orange','blue','yellow','red','purple','green','pink','brown']
 let d = 0
 let color = colors[d % colors.length]
 
@@ -11,15 +10,15 @@ class Drop {
     constructor() {
         this.radius = random(8, 15)
         this.pos = createVector(random(0, windowWidth), 0)
-        this.vel = createVector(-1.5, random(10, 25))
+        this.vel = createVector(-1.5,random(25,85))
     }
     show() {
         stroke(color)
         fill(color)
-        circle(this.pos.x, this.pos.y, this.radius)
+        circle(this.pos.x, this.pos.y, this.radius+0)
     }
     rain() {
-        if (this.pos.y < h) {
+        if (this.pos.y < h - 20) {
             this.pos.add(this.vel)
         } else {
             this.pos = createVector(random(0, windowWidth), 0)
@@ -38,6 +37,7 @@ function setup() {
     for (let i = 0; i < 100; i++) {
         rain.push(new Drop())
     }
+    speeds = [createVector(-1.5, random(10, 25)),createVector(-1.5, random(25, 60)),createVector(-1.5, random(60, 120))]
 }
 
 function draw() {
@@ -58,7 +58,6 @@ function mouseClicked() {
 }
 
 function keyPressed() {
-    console.log(key === "ArrowDown")
     if (key === " ") {
         if (!rainSound.isPlaying()) {
             rainSound.loop()
