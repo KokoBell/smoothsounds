@@ -21,7 +21,8 @@ main {
 .blue,
 .green,
 .yellow,
-.sound {
+.sound,
+.random {
     position: absolute;
     width: 2rem;
     height: 2rem;
@@ -37,14 +38,16 @@ main {
 .blue:hover,
 .green:hover,
 .yellow:hover,
-.sound:hover {
+.sound:hover,
+.random:hover {
     opacity: 0.6;
 }
 
 .blue:active,
 .green:active,
 .yellow:active,
-.sound:active {
+.sound:active,
+.random:active {
     opacity: 1;
 }
 
@@ -82,4 +85,9 @@ main {
 .sound {
     height: 4rem;
     background-color: white;
+}
+
+.random {
+    bottom: 300px;
+    background: -webkit-radial-gradient(center, red, orange, yellow, green, cyan, blue, violet, red);
 }
