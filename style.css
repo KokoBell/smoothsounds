@@ -31,24 +31,55 @@ main {
     bottom: 20px;
     right: 12px;
     cursor: pointer;
+    opacity: 0.2;
+}
+
+.blue:hover,
+.green:hover,
+.yellow:hover,
+.sound:hover {
+    opacity: 0.6;
+}
+
+.blue:active,
+.green:active,
+.yellow:active,
+.sound:active {
+    opacity: 1;
+}
+
+.blue:active {
+    box-shadow: 0 0 12px 0 dodgerblue;
+}
+
+.green:active {
+    box-shadow: 0 0 12px 0 lime;
+}
+
+.yellow:active {
+    box-shadow: 0 0 12px 0 yellow;
+}
+
+.sound:active {
+    box-shadow: 0 0 12px 0 white;
 }
 
 .yellow {
     bottom: 120px;
-    background-color: rgba(255, 255, 0, 0.589);
+    background-color: yellow;
 }
 
 .green {
     bottom: 180px;
-    background-color: rgba(6, 194, 6, 0.589);
+    background-color: lime;
 }
 
 .blue {
     bottom: 240px;
-    background-color: rgba(30, 143, 255, 0.582);
+    background-color: dodgerblue;
 }
 
 .sound {
     height: 4rem;
-    background-color: rgba(255, 255, 255, 0.575);
+    background-color: white;
 }
