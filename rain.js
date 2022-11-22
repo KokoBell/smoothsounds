@@ -54,6 +54,18 @@ function switchColors() {
     color = colors[d % colors.length]
 }
 
+function toggleBlue() {
+    color = colors[colors.indexOf('lightBlue')]
+}
+
+function toggleGreen() {
+    color = colors[colors.indexOf('lime')]
+}
+
+function toggleYellow() {
+    color = colors[colors.indexOf('yellow')]
+}
+
 function toggleSound() {
     if (!rainSound.isPlaying()) {
         rainSound.loop()
