@@ -3,6 +3,46 @@
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     overflow: hidden;
+    height: 100%;
+}
+
+.blue,
+.green,
+.yellow,
+.sound {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    outline: none;
+    border-radius: 48px;
+    bottom: 20px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.yellow {
+    right: 160px;
+    background-color: yellow;
+}
+
+.green {
+    right: 220px;
+    background-color: green;
+}
+
+.blue {
+    right: 280px;
+    background-color: dodgerblue;
+}
+
+.sound {
+    width: 6rem;
+    background-color: blueviolet;
 }

@@ -26,24 +26,19 @@ class Drop {
     }
 }
 
-function showColourMenu() {
-
-    circle(30, 30, 20)
-}
-
 function preload() {
     rainSound = loadSound('assets/rain-2.mp3');
 }
 
 function setup() {
+    //ellipseMode(CENTER)
     w = windowWidth
     h = windowHeight
     createCanvas(w, h)
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 60; i++) {
         rain.push(new Drop())
     }
     speeds = [createVector(-1.5, random(10, 25)), createVector(-1.5, random(25, 60)), createVector(-1.5, random(60, 120))]
-
 }
 
 function draw() {
@@ -52,17 +47,11 @@ function draw() {
         drop.show()
         drop.rain()
     })
-    //showColourMenu()
 }
 
 function switchColors() {
     d = d + 1
     color = colors[d % colors.length]
-}
-
-function touchStarted() {
-    console.log(navigator.userAgent)
-    toggleSound()
 }
 
 function toggleSound() {
@@ -78,6 +67,7 @@ function increaseVolume() {
         volume *= 1.1
     }
     rainSound.setVolume(volume)
+    console.log(volume)
 }
 
 function decreaseVolume() {
@@ -85,16 +75,15 @@ function decreaseVolume() {
         volume *= 0.9
     }
     rainSound.setVolume(volume)
-    if (volume < 0.2) {
+    if (volume < 0.125) {
         rainSound.setVolume(0)
     }
+    console.log(volume)
 }
 
 function keyPressed() {
     if (key === " ") {
         toggleSound()
-    } else {
-        switchColors()
     }
     if (key === "ArrowDown") {
         decreaseVolume()
