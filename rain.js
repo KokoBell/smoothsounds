@@ -2,7 +2,7 @@ let w, h
 let rain = []
 let rainSound
 let volume = 1
-let colors = ['lightBlue', 'lime', 'white','orange','blue','yellow','red','purple','green','pink','brown']
+let colors = ['lightBlue', 'lime', 'white', 'orange', 'blue', 'yellow', 'red', 'purple', 'green', 'pink', 'brown']
 let d = 0
 let color = colors[d % colors.length]
 
@@ -10,12 +10,12 @@ class Drop {
     constructor() {
         this.radius = random(8, 15)
         this.pos = createVector(random(0, windowWidth), 0)
-        this.vel = createVector(-1.5,random(25,85))
+        this.vel = createVector(-1.5, random(25, 85))
     }
     show() {
         stroke(color)
         fill(color)
-        circle(this.pos.x, this.pos.y, this.radius+0)
+        circle(this.pos.x, this.pos.y, this.radius + 0)
     }
     rain() {
         if (this.pos.y < h - 20) {
@@ -31,13 +31,14 @@ function preload() {
 }
 
 function setup() {
-    w = windowWidth * 0.99
-    h = windowHeight * 0.965
+    w = windowWidth
+    h = windowHeight
     createCanvas(w, h)
     for (let i = 0; i < 100; i++) {
         rain.push(new Drop())
     }
-    speeds = [createVector(-1.5, random(10, 25)),createVector(-1.5, random(25, 60)),createVector(-1.5, random(60, 120))]
+    speeds = [createVector(-1.5, random(10, 25)), createVector(-1.5, random(25, 60)), createVector(-1.5, random(60, 120))]
+    
 }
 
 function draw() {
@@ -57,29 +58,41 @@ function mouseClicked() {
     switchColors()
 }
 
+function toggleSound() {
+    if (!rainSound.isPlaying()) {
+        rainSound.loop()
+    } else {
+        rainSound.pause()
+    }
+}
+
+function increaseVolume() {
+    if (volume <= 1) {
+        volume *= 1.1
+    }
+    rainSound.setVolume(volume)
+}
+
+function decreaseVolume() {
+    if (volume >= 0) {
+        volume *= 0.9
+    }
+    rainSound.setVolume(volume)
+    if (volume < 0.2) {
+        rainSound.setVolume(0)
+    }
+}
+
 function keyPressed() {
     if (key === " ") {
-        if (!rainSound.isPlaying()) {
-            rainSound.loop()
-        } else {
-            rainSound.pause()
-        }
+        toggleSound()
     } else {
         switchColors()
     }
     if (key === "ArrowDown") {
-        if (volume >= 0) {
-            volume *= 0.9
-        }
-        rainSound.setVolume(volume)
-        if (volume < 0.2) {
-            rainSound.setVolume(0)
-        }
+        decreaseVolume()
     }
     if (key === "ArrowUp") {
-        if (volume <= 1) {
-            volume *= 1.1
-        }
-        rainSound.setVolume(volume)
+        increaseVolume()
     }
 }
