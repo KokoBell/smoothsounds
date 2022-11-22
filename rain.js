@@ -26,6 +26,11 @@ class Drop {
     }
 }
 
+function showColourMenu() {
+
+    circle(30, 30, 20)
+}
+
 function preload() {
     rainSound = loadSound('assets/rain-2.mp3');
 }
@@ -38,7 +43,7 @@ function setup() {
         rain.push(new Drop())
     }
     speeds = [createVector(-1.5, random(10, 25)), createVector(-1.5, random(25, 60)), createVector(-1.5, random(60, 120))]
-    
+
 }
 
 function draw() {
@@ -47,6 +52,7 @@ function draw() {
         drop.show()
         drop.rain()
     })
+    //showColourMenu()
 }
 
 function switchColors() {
@@ -54,8 +60,9 @@ function switchColors() {
     color = colors[d % colors.length]
 }
 
-function mouseClicked() {
-    switchColors()
+function touchStarted() {
+    console.log(navigator.userAgent)
+    toggleSound()
 }
 
 function toggleSound() {
