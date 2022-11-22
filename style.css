@@ -5,10 +5,16 @@
 
 html {
     height: 100%;
+    overflow: -moz-hidden-unscrollable;
+    background-color: black;
 }
 
 body {
     overflow: hidden;
+    height: 100%;
+}
+
+main {
     height: 100%;
 }
 
@@ -28,21 +34,21 @@ body {
 }
 
 .yellow {
-    right: 160px;
+    bottom: 120px;
     background-color: yellow;
 }
 
 .green {
-    right: 220px;
+    bottom: 180px;
     background-color: green;
 }
 
 .blue {
-    right: 280px;
+    bottom: 240px;
     background-color: dodgerblue;
 }
 
 .sound {
-    width: 6rem;
+    height: 4rem;
     background-color: blueviolet;
 }
