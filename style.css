@@ -35,20 +35,20 @@ main {
 
 .yellow {
     bottom: 120px;
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.589);
 }
 
 .green {
     bottom: 180px;
-    background-color: green;
+    background-color: rgba(6, 194, 6, 0.589);
 }
 
 .blue {
     bottom: 240px;
-    background-color: dodgerblue;
+    background-color: rgba(30, 143, 255, 0.582);
 }
 
 .sound {
     height: 4rem;
-    background-color: blueviolet;
+    background-color: rgba(255, 255, 255, 0.575);
 }
